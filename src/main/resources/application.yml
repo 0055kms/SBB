@@ -19,6 +19,5 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQLDialect
+        show_sql: true
         format_sql: true
-        show-sql: true
-
