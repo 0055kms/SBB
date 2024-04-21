@@ -6,6 +6,7 @@ import com.mysite.sbb.repository.QuestionRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,13 +20,20 @@ public class QuestionService {
         return questionRepository.findAll();
     }
 
-    public Question detail(Integer id) {
-        Optional<Question> oq = questionRepository.findById(id);
+    public Question getQuestion(Integer id) {
+        Optional<Question>oq = questionRepository.findById(id);
         if (oq.isPresent()) {
             return oq.get();
         }
         else{
             throw new DataNotFoundException("question not found");
         }
+    }
+    public void CreateQuestion(String subject, String content) {
+        Question question = new Question();
+        question.setSubject(subject);
+        question.setContent(content);
+        question.setCreateTime(LocalDateTime.now());
+        questionRepository.save(question);
     }
 }
