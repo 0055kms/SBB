@@ -22,5 +22,4 @@ public class AnswerController {
         answerService.create(question,content);
         return String.format("redirect:/question/%s",id);
     }
-
 }
