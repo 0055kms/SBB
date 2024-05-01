@@ -43,4 +43,7 @@ public class QuestionController {
         this.questionService.createQuestion(subject, content);
         return "redirect:/";
     }
+
+    
+
 }
